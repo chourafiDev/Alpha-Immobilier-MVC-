@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @*<title>@ViewBag.Title</title>*@
+
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Real Villa - Real Estate HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Real Villa - Real Estate HTML5 Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300,500,600,700%7CRoboto:300,400,500,700">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="~/css/font-awesome/all.min.css" />
+    <link rel="stylesheet" href="~/css/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="~/css/bootstrap/bootstrap.min.css" />
+
+    <!-- Page CSS Implementing Plugins-->
+    <link rel="stylesheet" href="~/css/select2/select2.css" />
+    <link rel="stylesheet" href="~/css/range-slider/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="~/css/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/css/magnific-popup/magnific-popup.css" />
+
+    <!-- Template Style -->
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+
+    <!--=================================
+    header -->
+    <header class="header">
+        <div class="topbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-block d-md-flex align-items-center text-center">
+                            <div class="mr-3 d-inline-block">
+                                <a href="tel:((+212)-6785435)"><i class="fa fa-phone mr-2 fa fa-flip-horizontal"></i>(+212)-6785435</a>
+                            </div>
+                            <div class="mr-auto d-inline-block">
+                                <span class="mr-2 text-white">Get App:</span>
+                                <a class="pr-1" href="#"><i class="fab fa-android"></i></a>
+                                <a href="#"><i class="fab fa-apple"></i></a>
+                            </div>
+                            <div class="social d-inline-block">
+                                <ul class="list-unstyled">
+                                    <li><a href="#"> <i class="fab fa-facebook-f"></i> </a></li>
+                                    <li><a href="#"> <i class="fab fa-twitter"></i> </a></li>
+                                    <li><a href="#"> <i class="fab fa-linkedin"></i> </a></li>
+                                    <li><a href="#"> <i class="fab fa-pinterest"></i> </a></li>
+                                    <li><a href="#"> <i class="fab fa-instagram"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="login d-inline-block">
+                                <a data-toggle="modal" data-target="#loginModal" href="#">Hello sign in<i class="fa fa-user pl-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-static-top  header-sticky">
+            <div class="container-fluid">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
+                <a class="navbar-brand" href="index.html">
+                    <img class="img-fluid" src="~/images/logo.svg" alt="logo">
+                </a>
+                <div class="navbar-collapse collapse">
+                    <!-- Menu -->
+                    <ul class="nav navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Welcome Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Listing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Button Listings -->
+                    <div class="p-2">
+                        <a class="btn btn-primary p-2" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Add listing </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--=================================
+    header -->
+
+    <!--=================================
+    Modal login -->
+    <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="loginModalLabel">Log in & Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs nav-tabs-02 justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="true">Register</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+
+                        <!-- ============================== Login ============================== -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <form class="form-row mt-4 align-items-center">
+                                <div class="form-group col-sm-12">
+                                    <input type="text" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input type="Password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
+                                        <li class="mr-1"><a href="#"><b><a href="#register">You don't have an acoount? Click here to register</a></b></a></li>
+                                    </ul>
+                                </div>
+                            </form>
+                            <div class="login-social-media border pl-4 pr-4 pb-4 pt-0 rounded">
+                                <div class="mb-4 d-block text-center"><b class="bg-white pl-2 pr-2 mt-3 d-block">Login or Sign in with</b></div>
+                                <form class="row">
+                                    <div class="col-sm-6">
+                                        <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-facebook-f"></i>Login with Facebook</span></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a class="btn google-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i class="fab fa-google"></i>Login with Google</span></a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- ============================== Register ============================== -->
+                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                            <form class="form-row mt-4 mb-5 align-items-center">
+                                <div class="roles form-group d-flex justify-content-center col-sm-12">
+                                    <div class="r1">
+                                        <label for="Personal">Personal</label> <input type="radio" name="AccountType" id="Personal" checked class="">
+                                    </div>
+                                    <div class="r2">
+                                        <input type="radio" name="AccountType" id="Professional" class=""> <label for="Professional">Professional</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input type="text" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="text" class="form-control" placeholder="LastName">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="text" class="form-control" placeholder="NickName">
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <input type="email" class="form-control" placeholder="Email Address">
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <input type="text" class="form-control" placeholder="Adress">
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <select class="form-control basic-select" name="region" id="region">
+                                        <option value="" disabled selected>City</option>
+                                        <option value="5">
+                                            Casablanca
+                                        </option>
+                                        <option value="13">
+                                            Agadir
+                                        </option>
+                                        <option value="17">
+                                            Al Hoceima
+                                        </option>
+                                        <option value="14">
+                                            Béni Mellal
+                                        </option>
+                                        <option value="7">
+                                            El Jadida
+                                        </option>
+                                        <option value="18">
+                                            Errachidia
+                                        </option>
+                                        <option value="3">
+                                            Fès
+                                        </option>
+                                        <option value="4">
+                                            Kénitra
+                                        </option>
+                                        <option value="19">
+                                            Khénifra
+                                        </option>
+                                        <option value="1">
+                                            Khouribga
+                                        </option>
+                                        <option value="20">
+                                            Larache
+                                        </option>
+                                        <option value="8">
+                                            Marrakech
+                                        </option>
+                                        <option value="9">
+                                            Meknès
+                                        </option>
+                                        <option value="21">
+                                            Nador
+                                        </option>
+                                        <option value="22">
+                                            Ouarzazate
+                                        </option>
+                                        <option value="10">
+                                            Oujda
+                                        </option>
+                                        <option value="12">
+                                            Rabat
+                                        </option>
+                                        <option value="2">
+                                            Safi
+                                        </option>
+                                        <option value="23">
+                                            Settat
+                                        </option>
+                                        <option value="6">
+                                            Salé
+                                        </option>
+                                        <option value="15">
+                                            Tanger
+                                        </option>
+                                        <option value="16">
+                                            Taza
+                                        </option>
+                                        <option value="11">
+                                            Tétouan
+                                        </option>
+                                        <option value="other" style="color: red">Choisir une autre ville...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="Password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="Password" class="form-control" placeholder="Confirm Password">
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
+                                        <li class="mr-1"><a href="#"><b><a href="#login"><a href="#register">Already Registered User? Click here to login</a></a></b></a></li>
+                                    </ul>
+                                </div>
+                            </form>
+                            <div class="login-social-media border pl-4 pr-4 pb-4 pt-0 rounded">
+                                <div class="mb-4 d-block text-center"><b class="bg-white pl-2 pr-2 mt-3 d-block">Login or Sign in with</b></div>
+                                <form class="row">
+                                    <div class="col-sm-6">
+                                        <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-facebook-f"></i>Login with Facebook</span></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a class="btn google-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i class="fab fa-google"></i>Login with Google</span></a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================================
+      Modal login -->
+
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+    <!--=================================
+    footer-->
+    <footer class="footer bg-dark space-pt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact-info">
+                        <h5 class="text-primary mb-4">About Alpha Immobilier</h5>
+                        <p class="text-white mb-4"><q>Alpha Immobilier</q> helped thousands of clients to find the right property for their needs.</p>
+                        <ul class="list-unstyled mb-0">
+                            <li> <b> <i class="fas fa-map-marker-alt"></i></b><span>Marrakech Rue Asfi Appartement 204</span> </li>
+                            <li> <b><i class="fas fa-microphone-alt"></i></b><span>(+212) 612345678</span> </li>
+                            <li> <b><i class="fas fa-headset"></i></b><span>support@alphaimmobilier.com</span> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                    <div class="footer-link">
+                        <h5 class="text-primary mb-4">Useful links</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li> <a href="#">Properties </a> </li>
+                            <li> <a href="#">Contact Us </a> </li>
+                            <li> <a href="#">About Us</a> </li>
+                            <li> <a href="#">Services </a> </li>
+                            <li> <a href="#">Terms and Conditions </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                    <div class="footer-recent-List">
+                        <h5 class="text-primary mb-4">Recently listed properties</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <div class="footer-recent-list-item">
+                                    <img class="img-fluid" src="images/property/list/01.jpg" alt="">
+                                    <div class="footer-recent-list-item-info">
+                                        <h6 class="text-white"><a class="category font-md mb-2" href="#">Awesome family home</a></h6>
+                                        <a class="address mb-2 font-sm" href="#">Adress property here</a>
+                                        <span class="price text-white">3,456,235 MAD</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="footer-recent-list-item">
+                                    <img class="img-fluid" src="images/property/list/02.jpg" alt="">
+                                    <div class="footer-recent-list-item-info">
+                                        <h6 class="text-white"><a class="category font-md mb-2" href="#">Luxury villa</a></h6>
+                                        <a class="address mb-2 font-sm" href="#">Adress property here</a>
+                                        <span class="price text-white">1,265,456 MAD</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                    <h5 class="text-primary mb-4">Subscribe us</h5>
+                    <div class="footer-subscribe">
+                        <p class="text-white">Sign up to our newsletter to get the latest news and offers.</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Enter email">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Get notified</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center text-md-left">
+                        <a href="~/index.html"><img class="img-fluid footer-logo" src="~/images/logo-light.svg" alt=""> </a>
+                    </div>
+                    <div class="col-md-4 text-center my-3 mt-md-0 mb-md-0">
+                        <a id="back-to-top" class="back-to-top" href="#"><i class="fas fa-angle-double-up"></i> </a>
+                    </div>
+                    <div class="col-md-4 text-center text-md-right">
+                        <p class="mb-0 text-white">
+                            &copy;Copyright <span id="copyright">
+                                <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                            </span> <a href="#"> Alpha Immobilier </a> All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--=================================
+    footer-->
+    <!--=================================
+    Javascript -->
+    <!-- JS Global Compulsory-->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src="~/js/popper/popper.min.js"></script>
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Page JS Implementing Plugins-->
+    <script src="~/js/jquery.appear.js"></script>
+    <script src="~/js/counter/jquery.countTo.js"></script>
+    <script src="~/js/select2/select2.full.js"></script>
+    <script src="~/js/range-slider/ion.rangeSlider.min.js"></script>
+    <script src="~/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/js/jarallax/jarallax.min.js"></script>
+    <script src="~/js/jarallax/jarallax-video.min.js"></script>
+    <script src="~/js/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom Scripts-->
+    <script src="~/js/custom.js"></script>
+</body>
+</html>
