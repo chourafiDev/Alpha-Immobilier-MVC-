@@ -1,37 +1,171 @@
 ﻿@model WebApplication1.Models.RegisterViewModel
-@{
-    ViewBag.Title = "Register";
-}
-
-<h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+
+    <!--=================================
+    Breadcrumb -->
+    <div class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html"> <i class="fas fa-home"></i> </a></li>
+                        <li class="breadcrumb-item"> <i class="fas fa-chevron-right"></i> <a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Login </span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================================
+    Breadcrumb -->
+
+    <!--=================================
+    Register -->
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    <section class="space-ptb login">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-sm-10">
+                    <div class="section-title">
+                        <h2 class="text-center">Create a new account</h2>
+                    </div>
+                    <!-- ============================== Register ============================== -->
+                    <div class="row">
+                        <form class="form-row mt-4 mb-5 align-items-center">
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group col-sm-12">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Username" })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                            </div>
+                            <div class="form-group col-sm-12">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email Adress" })
+                            </div>
+                            <div class="form-group col-sm-12">
+                                @Html.TextBoxFor(m => m.Adress, new { @class = "form-control", @placeholder = "Adress" })
+                            </div>
+
+                            <div class="form-group select-border col-sm-6">
+                                @Html.DropDownListFor(model => model.UserType, (SelectList)ViewBag.UserType, "Select Role", new { @class = "form-control basic-select" })
+                                @*@Html.DropDownList("UserType", null, new { @class = "form-control basic-select", @placeholder = "User Type" })*@
+                            </div>
+                            <div class="input-group col-sm-6 mb-2 select-border">
+                                @Html.DropDownListFor(model => model.city, (SelectList)ViewBag.City, "Select City", new { @class = "form-control basic-select" })
+                                @*<select class="form-control basic-select">
+                    <option value="5">
+                        Casablanca
+                    </option>
+                    <option value="13">
+                        Agadir
+                    </option>
+                    <option value="17">
+                        Al Hoceima
+                    </option>
+                    <option value="14">
+                        Béni Mellal
+                    </option>
+                    <option value="7">
+                        El Jadida
+                    </option>
+                    <option value="18">
+                        Errachidia
+                    </option>
+                    <option value="3">
+                        Fès
+                    </option>
+                    <option value="4">
+                        Kénitra
+                    </option>
+                    <option value="19">
+                        Khénifra
+                    </option>
+                    <option value="1">
+                        Khouribga
+                    </option>
+                    <option value="20">
+                        Larache
+                    </option>
+                    <option value="8">
+                        Marrakech
+                    </option>
+                    <option value="9">
+                        Meknès
+                    </option>
+                    <option value="21">
+                        Nador
+                    </option>
+                    <option value="22">
+                        Ouarzazate
+                    </option>
+                    <option value="10">
+                        Oujda
+                    </option>
+                    <option value="12">
+                        Rabat
+                    </option>
+                    <option value="2">
+                        Safi
+                    </option>
+                    <option value="23">
+                        Settat
+                    </option>
+                    <option value="6">
+                        Salé
+                    </option>
+                    <option value="15">
+                        Tanger
+                    </option>
+                    <option value="16">
+                        Taza
+                    </option>
+                    <option value="11">
+                        Tétouan
+                    </option>
+                    <option value="11">
+                        laayoune
+                    </option>
+                    <option value="11">
+                        Dakhla
+                    </option>
+                </select>*@
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password" })
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled d-flex mb-1 m-0">
+                                    <li style="margin-top:12px;"><b>@Html.ActionLink("Already Registered User? Click here to login", "Login")</b></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="login-social-media border pl-4 pr-4 pb-4 pt-0 mt-5 rounded">
+                        <div class="mb-4 d-block text-center"><b class="bg-white pl-2 pr-2 mt-3 d-block">Login or Sign in with</b></div>
+                        <form class="row">
+                            <div class="col-sm-6">
+                                <a class="btn facebook-bg social-bg-hover d-block mb-3" href="#"><span><i class="fab fa-facebook-f"></i>Login with Facebook</span></a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="btn google-bg social-bg-hover d-block mb-3 mb-sm-0" href="#"><span><i class="fab fa-google"></i>Login with Google</span></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
+    </section>
+    <!--=================================
+    Regsiter -->
 }

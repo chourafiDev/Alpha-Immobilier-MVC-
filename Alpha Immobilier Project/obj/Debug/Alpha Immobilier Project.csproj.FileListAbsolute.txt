@@ -101,4 +101,7 @@ D:\Alpha Immobilier Project\Alpha Immobilier Project\bin\Microsoft.Owin.Security
 D:\Alpha Immobilier Project\Alpha Immobilier Project\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Alpha Immobilier Project\Alpha Immobilier Project\bin\Newtonsoft.Json.xml
 D:\Alpha Immobilier Project\Alpha Immobilier Project\bin\System.Web.Optimization.xml
+D:\Alpha Immobilier Project\Alpha Immobilier Project\obj\Debug\Alpha_Immobilier_Project.Migrations.InitialCreate.resources
+D:\Alpha Immobilier Project\Alpha Immobilier Project\obj\Debug\Alpha Immobilier Project.csproj.GenerateResource.cache
+D:\Alpha Immobilier Project\Alpha Immobilier Project\obj\Debug\Alpha_Immobilier_Project.Migrations.firstcommit.resources
 D:\Alpha Immobilier Project\Alpha Immobilier Project\obj\Debug\Alpha Immobilier Project.csprojAssemblyReference.cache

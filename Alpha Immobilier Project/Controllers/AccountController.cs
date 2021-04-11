@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -68,27 +69,46 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            try
             {
+                string user_name = "";
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                if (user != null)
+                {
+                    user_name = user.UserName;
+                    result = await SignInManager.PasswordSignInAsync(user_name, model.Password, model.RememberMe, shouldLockout: false);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, change to shouldLockout: true
+
+                switch (result)
+                {
+                    case SignInStatus.Success:
+                        return RedirectToLocal(returnUrl);
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
                 return View(model);
             }
-
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            
+            
         }
 
         //
@@ -139,6 +159,8 @@ namespace WebApplication1.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.UserType = new SelectList(new[] { "Personal", "Professional" });
+            ViewBag.City = new SelectList(new[] { "Rabat", "Tanger" });
             return View();
         }
 
@@ -151,7 +173,9 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                ViewBag.UserType = new SelectList(new[] { "Personal", "Professional" });
+                ViewBag.City = new SelectList(new[] { "Rabat", "Tanger" });
+                var user = new ApplicationUser { UserName = model.UserName,FirstName = model.FirstName, LastName = model.LastName, Adress = model.Adress, City = model.city, Email = model.Email, UserType = model.UserType };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

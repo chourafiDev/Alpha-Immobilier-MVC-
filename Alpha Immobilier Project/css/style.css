@@ -24,9 +24,10 @@ a {
   a:focus {
     color: #3CACD7;
     text-decoration: none !important; }
-  a:hover {
+    a:hover {
     color: #3CACD7;
-    text-decoration: none !important; }
+    text-decoration: none !important;
+    }
 
 input {
   outline: medium none !important;
@@ -97,17 +98,18 @@ p {
   padding: 0 100px; }
 
 .form-control {
-  border: 1px solid #eeeeee;
-  border-radius: 0px;
-  height: 50px;
-  padding: 10px 20px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: #001935;
-  border-radius: 3px;
-  background-clip: inherit !important; }
+    border: 1px solid #eeeeee;
+    border-radius: 0px;
+    height: 50px;
+    padding: 10px 20px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #001935;
+    border-radius: 3px;
+    background-clip: inherit !important;
+}
   .form-control:focus {
     -webkit-box-shadow: none;
             box-shadow: none;

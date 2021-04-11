@@ -48,6 +48,7 @@ namespace WebApplication1.Models
 
     public class LoginViewModel
     {
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -64,6 +65,30 @@ namespace WebApplication1.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public string UserType { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string city { get; set; }
+
+        [Required]
+        [Display(Name = "Adress")]
+        public string Adress { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

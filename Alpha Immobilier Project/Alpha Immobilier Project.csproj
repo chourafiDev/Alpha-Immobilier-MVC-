@@ -299,6 +299,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104111336010_InitialCreate.cs" />
+    <Compile Include="Migrations\202104111336010_InitialCreate.designer.cs">
+      <DependentUpon>202104111336010_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104111411311_first commit.cs" />
+    <Compile Include="Migrations\202104111411311_first commit.designer.cs">
+      <DependentUpon>202104111411311_first commit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -364,6 +373,7 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -373,6 +383,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104111336010_InitialCreate.resx">
+      <DependentUpon>202104111336010_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104111411311_first commit.resx">
+      <DependentUpon>202104111411311_first commit.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
