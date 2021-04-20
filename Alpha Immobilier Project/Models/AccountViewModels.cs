@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace WebApplication1.Models
 {
@@ -65,6 +66,8 @@ namespace WebApplication1.Models
 
     public class RegisterViewModel
     {
+        public DateTime DateCreation { get; set; }
+
         [Required]
         [Display(Name = "Username")]
         public string UserName { get; set; }
@@ -72,6 +75,10 @@ namespace WebApplication1.Models
         [Required]
         [Display(Name = "Role")]
         public string UserType { get; set; }
+
+        [Required]
+        [Display(Name = "Phone")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -104,6 +111,48 @@ namespace WebApplication1.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class EditProfileViewModel
+    {
+        [Key]
+        public int MyPIdroperty { get; set; }
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
+        public DateTime DateCreation { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string city { get; set; }
+
+        [Required]
+        [Display(Name = "Adress")]
+        public string Adress { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Old Password")]
+        public string OldPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string NewPassword { get; set; }
     }
 
     public class ResetPasswordViewModel

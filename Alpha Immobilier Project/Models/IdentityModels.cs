@@ -3,12 +3,14 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace WebApplication1.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public DateTime DateCreation { get; set; }
         public string UserType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -30,9 +32,17 @@ namespace WebApplication1.Models
         {
         }
 
+        public object Identity { get; internal set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Alpha_Immobilier_Project.Models.Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<Alpha_Immobilier_Project.Models.TypeListing> TypeListings { get; set; }
+
+        public System.Data.Entity.DbSet<Alpha_Immobilier_Project.Models.Listing> Listings { get; set; }
     }
 }

@@ -147,12 +147,10 @@
     <Content Include="css\animate\animate.min.css" />
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
-    <Content Include="css\datetimepicker\datetimepicker.min.css" />
     <Content Include="css\flaticon\flaticon.css" />
     <Content Include="css\font-awesome\all.css" />
     <Content Include="css\font-awesome\all.min.css" />
     <Content Include="css\magnific-popup\magnific-popup.css" />
-    <Content Include="css\map\snazzy-info-window.min.css" />
     <Content Include="css\owl-carousel\owl.carousel.css" />
     <Content Include="css\owl-carousel\owl.carousel.min.css" />
     <Content Include="css\range-slider\ion.rangeSlider.css" />
@@ -293,7 +291,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListingsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -307,16 +307,58 @@
     <Compile Include="Migrations\202104111411311_first commit.designer.cs">
       <DependentUpon>202104111411311_first commit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104121225495_deletePhoneNumber.cs" />
+    <Compile Include="Migrations\202104121225495_deletePhoneNumber.designer.cs">
+      <DependentUpon>202104121225495_deletePhoneNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104121530502_addDateCreationColumn.cs" />
+    <Compile Include="Migrations\202104121530502_addDateCreationColumn.designer.cs">
+      <DependentUpon>202104121530502_addDateCreationColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104171146435_addCategoryTable.cs" />
+    <Compile Include="Migrations\202104171146435_addCategoryTable.designer.cs">
+      <DependentUpon>202104171146435_addCategoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104171159018_addCategoryIconColumn.cs" />
+    <Compile Include="Migrations\202104171159018_addCategoryIconColumn.designer.cs">
+      <DependentUpon>202104171159018_addCategoryIconColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104171341000_addListingType.cs" />
+    <Compile Include="Migrations\202104171341000_addListingType.designer.cs">
+      <DependentUpon>202104171341000_addListingType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104181319402_addTableListing.cs" />
+    <Compile Include="Migrations\202104181319402_addTableListing.designer.cs">
+      <DependentUpon>202104181319402_addTableListing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104181333298_UpdateTableListing.cs" />
+    <Compile Include="Migrations\202104181333298_UpdateTableListing.designer.cs">
+      <DependentUpon>202104181333298_UpdateTableListing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104181539479_updateColumnImageListing.cs" />
+    <Compile Include="Migrations\202104181539479_updateColumnImageListing.designer.cs">
+      <DependentUpon>202104181539479_updateColumnImageListing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104181543079_updateColumnImageListing2.cs" />
+    <Compile Include="Migrations\202104181543079_updateColumnImageListing2.designer.cs">
+      <DependentUpon>202104181543079_updateColumnImageListing2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104181615046_updateColumnImageListing3.cs" />
+    <Compile Include="Migrations\202104181615046_updateColumnImageListing3.designer.cs">
+      <DependentUpon>202104181615046_updateColumnImageListing3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Listing.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TypeListing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="css\style.css.map" />
     <Content Include="fonts\fa-brands-400.eot" />
     <Content Include="fonts\fa-brands-400.ttf" />
     <Content Include="fonts\fa-brands-400.woff" />
@@ -348,6 +390,7 @@
     <Content Include="images\property\Thumbs.db" />
     <Content Include="images\slider\Thumbs.db" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="css\style.css.map" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
@@ -374,6 +417,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Manage\Index - Copy.cshtml" />
+    <Content Include="Views\Account\EditProfil.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Listings\Create.cshtml" />
+    <Content Include="Views\Listings\Delete.cshtml" />
+    <Content Include="Views\Listings\Details.cshtml" />
+    <Content Include="Views\Listings\Edit.cshtml" />
+    <Content Include="Views\Listings\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -383,6 +438,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="Views\TypeListings\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104111336010_InitialCreate.resx">
@@ -390,6 +447,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104111411311_first commit.resx">
       <DependentUpon>202104111411311_first commit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104121225495_deletePhoneNumber.resx">
+      <DependentUpon>202104121225495_deletePhoneNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104121530502_addDateCreationColumn.resx">
+      <DependentUpon>202104121530502_addDateCreationColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104171146435_addCategoryTable.resx">
+      <DependentUpon>202104171146435_addCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104171159018_addCategoryIconColumn.resx">
+      <DependentUpon>202104171159018_addCategoryIconColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104171341000_addListingType.resx">
+      <DependentUpon>202104171341000_addListingType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104181319402_addTableListing.resx">
+      <DependentUpon>202104181319402_addTableListing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104181333298_UpdateTableListing.resx">
+      <DependentUpon>202104181333298_UpdateTableListing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104181539479_updateColumnImageListing.resx">
+      <DependentUpon>202104181539479_updateColumnImageListing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104181543079_updateColumnImageListing2.resx">
+      <DependentUpon>202104181543079_updateColumnImageListing2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104181615046_updateColumnImageListing3.resx">
+      <DependentUpon>202104181615046_updateColumnImageListing3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

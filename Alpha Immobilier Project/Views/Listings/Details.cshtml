@@ -1,0 +1,115 @@
+﻿@model Alpha_Immobilier_Project.Models.Listing
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Listing</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrixListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrixListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdressListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdressListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrChambre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbrChambre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrBath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbrBath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrBed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbrBed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

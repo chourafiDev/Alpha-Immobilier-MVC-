@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Alpha_Immobilier_Project.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryIcon)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryIcon)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+<!--=================================
+Browse properties -->
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Browse by category</h2>
+                    <p>To browse and buy in your areas of interest, look for properties by category.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="category">
+                    <ul class="list-unstyled mb-0">
+                        @foreach (var item in Model)
+                        {
+                        <li class="category-item">
+                            <a href="property-list.html">
+                                <div class="category-icon">
+                                    <i class="@Html.DisplayFor(modelItem => item.CategoryIcon)"></i>
+                                </div>
+                                <h6 class="mb-0">@Html.DisplayFor(modelItem => item.CategoryName)</h6>
+                                <span>(457)</span>
+                            </a>
+                        </li>
+                        <li>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </li>
+                         }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=================================
+Browse properties -->

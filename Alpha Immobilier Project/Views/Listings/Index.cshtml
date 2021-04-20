@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Alpha_Immobilier_Project.Models.Listing>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescListing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageListing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrixListing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityListing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdressListing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbrChambre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbrBath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbrBed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeListing)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescListing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageListing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrixListing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityListing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdressListing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbrChambre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbrBath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbrBed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeListing.type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

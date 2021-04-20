@@ -7,7 +7,7 @@
         @Html.AntiForgeryToken()
            <ul class="list-unstyled d-flex m-0">
                <li class="mr-3">
-                   @Html.ActionLink("Welcome "+ User.Identity.GetUserName(), "Index", "Manage")
+                   @Html.ActionLink("Welcome "+ User.Identity.GetUserName(), "EditProfil", "Account")
                </li>
                <li >
                    <a href="javascript:document.getElementById('logOff').submit()">Log Out<i class="fa fa-lock ml-1"></i></a>
@@ -17,7 +17,7 @@
 }
 else
 {
-    <div class="login d-inline-block">
-        <a data-toggle="modal" data-target="#loginModal" href="#">Hello sign in<i class="fa fa-user pl-2"></i></a>
-    </div>
+<div class="login d-inline-block">
+    @Html.ActionLink("Hello sign in", "Login", "Account")<i class="fa fa-user ml-1"></i>
+</div>
 }

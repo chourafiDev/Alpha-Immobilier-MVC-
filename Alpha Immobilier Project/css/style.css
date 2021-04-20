@@ -1,13 +1,3 @@
-/*
-
-Template: Real Villa - Real Estate HTML5 Template
-Version: 1.0.0
-Author: potenzaglobalsolutions
-Design and Developed by: potenzaglobalsolutions.com
-
-NOTE: This is main stylesheet of template, This file contains the styling for the actual Template.
-
-*/
 body {
   font-family: "Roboto", sans-serif;
   font-weight: normal;
@@ -24,10 +14,9 @@ a {
   a:focus {
     color: #3CACD7;
     text-decoration: none !important; }
-    a:hover {
+  a:hover {
     color: #3CACD7;
-    text-decoration: none !important;
-    }
+    text-decoration: none !important; }
 
 input {
   outline: medium none !important;
@@ -98,18 +87,17 @@ p {
   padding: 0 100px; }
 
 .form-control {
-    border: 1px solid #eeeeee;
-    border-radius: 0px;
-    height: 50px;
-    padding: 10px 20px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: #001935;
-    border-radius: 3px;
-    background-clip: inherit !important;
-}
+  border: 1px solid #eeeeee;
+  border-radius: 0px;
+  height: 50px;
+  padding: 10px 20px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #001935;
+  border-radius: 3px;
+  background-clip: inherit !important; }
   .form-control:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -1242,62 +1230,6 @@ p {
 
 .carousel-control-next, .carousel-control-prev {
   opacity: .6; }
-
-.bootstrap-datetimepicker-widget table td.active {
-  background-color: #3CACD7; }
-  .bootstrap-datetimepicker-widget table td.active:hover {
-    background-color: #3CACD7; }
-
-.bootstrap-datetimepicker-widget table td.day {
-  height: 30px;
-  line-height: 30px;
-  width: 40px;
-  font-size: 14px; }
-
-.bootstrap-datetimepicker-widget table th {
-  font-size: 14px; }
-
-.bootstrap-datetimepicker-widget table td span.active {
-  background: #3CACD7; }
-
-.bootstrap-datetimepicker-widget.dropdown-menu {
-  width: 19rem; }
-
-.pricing {
-  background: #fafafa;
-  padding: 30px; }
-  .pricing .pricing-price strong {
-    color: #3CACD7;
-    font-size: 40px; }
-  .pricing .pricing-list {
-    margin-top: 20px;
-    margin-bottom: 0; }
-    .pricing .pricing-list li {
-      padding: 6px 0; }
-      .pricing .pricing-list li:last-child {
-        padding-bottom: 0; }
-
-.countdown {
-  display: inline-block;
-  text-align: center;
-  margin: 0px 20px; }
-  .countdown span {
-    font-size: 80px;
-    line-height: 80px;
-    font-weight: 600;
-    color: #3CACD7; }
-  .countdown p {
-    font-size: 20px;
-    text-transform: capitalize;
-    margin-bottom: 0;
-    color: #001935; }
-
-.countdown-small span {
-  font-size: 24px;
-  line-height: 24px; }
-
-.countdown-small p {
-  font-size: 14px; }
 
 .btn {
   -webkit-transition: all 0.3s ease-in-out;
@@ -3090,132 +3022,42 @@ button {
     background: #3CACD7;
     color: #ffffff; }
 
-.error-404 h1 {
-  font-size: 280px;
-  line-height: 280px;
-  margin-bottom: 30px;
-  color: #001935;
-  -webkit-text-fill-color: #ffffff;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #001935;
-  -ms-text-fill-color: #ffffff;
-  -ms-text-stroke-width: 1px;
-  -ms-text-stroke-color: #001935; }
+.info_listing {
+  margin: 80px 0 100px 0; }
+  .info_listing .listing-title {
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1; }
+    .info_listing .listing-title::before {
+      content: "";
+      background-color: #3cabd785;
+      left: 0;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      position: absolute;
+      z-index: -1; }
 
-.error-404 strong {
-  font-size: 30px;
-  line-height: 30px;
-  color: #001935;
-  display: block;
-  margin-bottom: 20px; }
-
-.error-404 span {
-  font-size: 16px;
-  font-weight: 600; }
-
-.house-animation {
-  animation: animationFrames ease-out 15s;
-  animation-iteration-count: infinite;
-  transform-origin: 50% 0%;
-  -webkit-animation: animationFrames ease-out 15s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-transform-origin: 50% 0%;
-  -moz-animation: animationFrames ease-out 15s;
-  -moz-animation-iteration-count: infinite;
-  -moz-transform-origin: 50% 0%;
-  -o-animation: animationFrames ease-out 15s;
-  -o-animation-iteration-count: infinite;
-  -o-transform-origin: 50% 0%;
-  -ms-animation: animationFrames ease-out 15s;
-  -ms-animation-iteration-count: infinite;
-  -ms-transform-origin: 50% 0%; }
-
-@keyframes animationFrames {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-  20% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg); }
-  40% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg); }
-  60% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg); }
-  80% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg); }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); } }
-
-@-webkit-keyframes animationFrames {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  20% {
-    -webkit-transform: rotate(15deg); }
-  40% {
-    -webkit-transform: rotate(-10deg); }
-  60% {
-    -webkit-transform: rotate(5deg); }
-  80% {
-    -webkit-transform: rotate(-5deg); }
-  100% {
-    -webkit-transform: rotate(0deg); } }
-
-.cloud {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  -webkit-animation: movecloud 4s linear infinite;
-          animation: movecloud 4s linear infinite;
-  /*animation-play-state: paused;*/ }
-
-.cloud-01 {
-  fill: red;
-  top: 10px;
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s; }
-
-.cloud-02 {
-  fill: blue;
-  top: 80px;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
-  -webkit-animation-duration: 6s;
-          animation-duration: 6s; }
-
-.cloud-03 {
-  fill: green;
-  top: 40px;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
-  -webkit-animation-duration: 8s;
-          animation-duration: 8s; }
-
-.cloud-04 {
-  fill: green;
-  top: 80px;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s; }
-
-@-webkit-keyframes movecloud {
-  0% {
-    left: -300px; }
-  100% {
-    left: 110%; } }
-
-@keyframes movecloud {
-  0% {
-    left: -300px; }
-  100% {
-    left: 110%; } }
+.sub-form {
+  -webkit-box-shadow: 1px 0 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 0 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(128, 137, 150, 0.1);
+  border-radius: 8px;
+  padding: 30px; }
+  .sub-form .listing-head {
+    margin-bottom: 3rem;
+    color: #1d2936;
+    position: relative; }
+    .sub-form .listing-head::before {
+      content: "";
+      background-color: #3CACD7;
+      left: 0;
+      bottom: -20px;
+      width: 5%;
+      height: 4px;
+      border-radius: 30px;
+      position: absolute; }
 
 .footer .footer-contact-info
 ul {

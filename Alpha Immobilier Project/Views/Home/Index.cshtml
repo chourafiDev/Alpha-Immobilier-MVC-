@@ -1,31 +1,208 @@
-﻿@{
+﻿@model IEnumerable<Alpha_Immobilier_Project.Models.Category>
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!--=================================
+banner -->
+<section class="banner-bg-video bg-holder bg-overlay-black-30" data-jarallax='{"speed": 0.6}'
+         data-jarallax-video="https://www.youtube.com/embed/kacyaEXqVhs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-white text-center mb-2">Discover A Place You’ll Love To Live</h1>
+                <p class="lead text-center text-white mb-4 font-weight-normal">Take a step to realizing your dream. #TimeToMove</p>
+                <div class="property-search-field bg-white">
+                    <div class="property-search-item">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                        <form class="form-row basic-select-wrapper">
+                            <div class="form-group col-lg-2">
+                                <label>Property type</label>
+                                <select class="form-control basic-select">
+                                    <option>All Type</option>
+                                    <option>Villa</option>
+                                    <option>Floor Aria</option>
+                                    <option>Agricultural Land</option>
+                                    <option>Office</option>
+                                    <option>Residential</option>
+                                    <option>Shop</option>
+                                    <option>Apartment</option>
+                                    <option>Studio</option>
+                                    <option>Industrial</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-lg-2">
+                                <label>Status</label>
+                                <select class="form-control basic-select">
+                                    <option>For Rent</option>
+                                    <option>For Sale</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-lg-2">
+                                <label>Location</label>
+                                <select class="form-control basic-select" name="region" id="region">
+                                    <option value="5">
+                                        Casablanca
+                                    </option>
+                                    <option value="13">
+                                        Agadir
+                                    </option>
+                                    <option value="17">
+                                        Al Hoceima
+                                    </option>
+                                    <option value="14">
+                                        Béni Mellal
+                                    </option>
+                                    <option value="7">
+                                        El Jadida
+                                    </option>
+                                    <option value="18">
+                                        Errachidia
+                                    </option>
+                                    <option value="3">
+                                        Fès
+                                    </option>
+                                    <option value="4">
+                                        Kénitra
+                                    </option>
+                                    <option value="19">
+                                        Khénifra
+                                    </option>
+                                    <option value="1">
+                                        Khouribga
+                                    </option>
+                                    <option value="20">
+                                        Larache
+                                    </option>
+                                    <option value="8">
+                                        Marrakech
+                                    </option>
+                                    <option value="9">
+                                        Meknès
+                                    </option>
+                                    <option value="21">
+                                        Nador
+                                    </option>
+                                    <option value="22">
+                                        Ouarzazate
+                                    </option>
+                                    <option value="10">
+                                        Oujda
+                                    </option>
+                                    <option value="12">
+                                        Rabat
+                                    </option>
+                                    <option value="2">
+                                        Safi
+                                    </option>
+                                    <option value="23">
+                                        Settat
+                                    </option>
+                                    <option value="6">
+                                        Salé
+                                    </option>
+                                    <option value="15">
+                                        Tanger
+                                    </option>
+                                    <option value="16">
+                                        Taza
+                                    </option>
+                                    <option value="11">
+                                        Tétouan
+                                    </option>
+                                    <option value="other" style="color: red">Choisir une autre ville...</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group d-flex justify-content-center col-lg-3">
+                                <span class="d-none d-lg-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
+                            </div>
+
+                            <div class="form-group text-center col-lg-3">
+                                <div class="d-flex justify-content-center d-md-inline-block">
+                                    <a class="more-search p-0" data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search">
+                                        <span class="d-block pr-2 mb-1">Advanced search</span>
+                                        <i class="fas fa-angle-double-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="collapse advanced-search" id="advanced-search">
+                                <div class="card card-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label>Bathrooms</label>
+                                            <select class="form-control basic-select">
+                                                <option>No max</option>
+                                                <option>01</option>
+                                                <option>02</option>
+                                                <option>03</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Bedrooms</label>
+                                            <select class="form-control basic-select">
+                                                <option>No max</option>
+                                                <option>01</option>
+                                                <option>02</option>
+                                                <option>03</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6 property-price-slider ">
+                                            <label>Select Price Range</label>
+                                            <input type="text" id="property-price-slider" name="example_name" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-lg-none btn-block btn-mobile m-3">
+                                <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+<!--=================================
+banner -->
+<!--=================================
+Browse properties -->
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Browse by category</h2>
+                    <p>To browse and buy in your areas of interest, look for properties by category.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="category">
+                    <ul class="list-unstyled mb-0">
+                        @foreach (var item in Model)
+                        {
+                            <li class="category-item">
+                                <a href="property-list.html">
+                                    <div class="category-icon">
+                                        <i class="@Html.DisplayFor(m => item.CategoryIcon)"></i>
+                                    </div>
+                                    <h6 class="mb-0">@Html.DisplayFor(m => item.CategoryName)</h6>
+                                    <span>(457)</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</section>
+<!--=================================
+Browse properties -->

@@ -44,8 +44,11 @@
                             <div class="form-group col-sm-6">
                                 @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
                             </div>
-                            <div class="form-group col-sm-12">
+                            <div class="form-group col-sm-6">
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email Adress" })
+                            </div>
+                            <div class="form-group col-sm-6">
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
                             </div>
                             <div class="form-group col-sm-12">
                                 @Html.TextBoxFor(m => m.Adress, new { @class = "form-control", @placeholder = "Adress" })
@@ -53,87 +56,9 @@
 
                             <div class="form-group select-border col-sm-6">
                                 @Html.DropDownListFor(model => model.UserType, (SelectList)ViewBag.UserType, "Select Role", new { @class = "form-control basic-select" })
-                                @*@Html.DropDownList("UserType", null, new { @class = "form-control basic-select", @placeholder = "User Type" })*@
                             </div>
                             <div class="input-group col-sm-6 mb-2 select-border">
                                 @Html.DropDownListFor(model => model.city, (SelectList)ViewBag.City, "Select City", new { @class = "form-control basic-select" })
-                                @*<select class="form-control basic-select">
-                    <option value="5">
-                        Casablanca
-                    </option>
-                    <option value="13">
-                        Agadir
-                    </option>
-                    <option value="17">
-                        Al Hoceima
-                    </option>
-                    <option value="14">
-                        Béni Mellal
-                    </option>
-                    <option value="7">
-                        El Jadida
-                    </option>
-                    <option value="18">
-                        Errachidia
-                    </option>
-                    <option value="3">
-                        Fès
-                    </option>
-                    <option value="4">
-                        Kénitra
-                    </option>
-                    <option value="19">
-                        Khénifra
-                    </option>
-                    <option value="1">
-                        Khouribga
-                    </option>
-                    <option value="20">
-                        Larache
-                    </option>
-                    <option value="8">
-                        Marrakech
-                    </option>
-                    <option value="9">
-                        Meknès
-                    </option>
-                    <option value="21">
-                        Nador
-                    </option>
-                    <option value="22">
-                        Ouarzazate
-                    </option>
-                    <option value="10">
-                        Oujda
-                    </option>
-                    <option value="12">
-                        Rabat
-                    </option>
-                    <option value="2">
-                        Safi
-                    </option>
-                    <option value="23">
-                        Settat
-                    </option>
-                    <option value="6">
-                        Salé
-                    </option>
-                    <option value="15">
-                        Tanger
-                    </option>
-                    <option value="16">
-                        Taza
-                    </option>
-                    <option value="11">
-                        Tétouan
-                    </option>
-                    <option value="11">
-                        laayoune
-                    </option>
-                    <option value="11">
-                        Dakhla
-                    </option>
-                </select>*@
                             </div>
                             <div class="form-group col-sm-6">
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })

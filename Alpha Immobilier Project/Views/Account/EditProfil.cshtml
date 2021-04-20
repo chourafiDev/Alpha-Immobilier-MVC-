@@ -1,0 +1,149 @@
+﻿@model WebApplication1.Models.EditProfileViewModel
+
+
+@using (Html.BeginForm())
+{
+    <!--=================================
+    breadcrumb -->
+    <div class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item">  @Html.ActionLink("Home", "Index", "Home")<i class="fas fa-home ml-1"></i></li>
+                        <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span>My profile</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================================
+    breadcrumb -->
+
+    <!--=================================
+    My profile -->
+    <section class="space-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <div class="profile-sidebar bg-holder bg-overlay-black-70" style="background-image: url(images/banner-01.jpg);">
+                        <div class="d-sm-flex align-items-center position-relative">
+                            <div class="profile-avatar">
+                                <img class="img-fluid  rounded-circle" src="~/images/agent/04.jpg" alt="">
+                            </div>
+                            <div class="ml-sm-4">
+                                <h4 class="text-white">@ViewBag.Full</h4>
+                                <b class="text-white">@ViewBag.Email</b>
+                            </div>
+                            @if(@ViewBag.UserType == "Professional"){
+                            <div class="ml-auto my-4 mt-sm-0">
+                                <a class="btn btn-white btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Add listing </a>
+                            </div>
+                            }
+                        </div>
+                        <div class="profile-nav">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="~/Account/EditProfil"><i class="far fa-user"></i> Edit Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="account-my-properties.html"><i class="far fa-bell"></i>My properties</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="account-agency-management.html"><i class="far fa-edit"></i> Agency Management</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="account-saved-homes.html"><i class="fas fa-home"></i> Saved Homes</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="section-title d-flex align-items-center">
+                        <h2>Edit profile </h2>
+                        <span class="ml-auto">Joined @ViewBag.Date </span>
+                    </div>
+                    <form>
+                        @Html.AntiForgeryToken()
+                        <div class="form-row">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.MyPIdroperty)
+
+                            @if (ViewBag.Message != null)
+                            {
+
+                                if((bool)ViewData["Stat"] == false)
+                                {
+                                    <div class="alert alert-danger col-md-12" role="alert">
+                                        @ViewBag.Message
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-success col-md-12" role="alert">
+                                        @ViewBag.Message
+                                    </div>
+                                }
+
+                            }
+
+                            <div class="form-group col-md-6">
+                                <label>First Name</label>
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Last Name</label>
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Email</label>
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Phone Number</label>
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Adress</label>
+                                @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6 select-border">
+                                <label>City</label>
+                                @Html.DropDownListFor(model => model.city, (SelectList)ViewBag.City, new { @class = "form-control basic-select" })
+                                @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Old Password</label>
+                                @Html.EditorFor(model => model.OldPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>New Password</label>
+                                @Html.EditorFor(model => model.NewPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-primary" value="Save Changes" />
+                            </div>
+                        </div>
+                    </form>
+                    <hr class="my-5" />
+                    <div class="mb-2">
+                        <h6>Delete Account?</h6>
+                        <p>This will remove your login information from our system, and you will not be able to login again. It cannot be undone.</p>
+                        <a class="btn btn-danger" href="@Url.Action("DeleteUser")" >Yes Delete My Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================================
+    My profile -->
+}
+

@@ -16,11 +16,13 @@ namespace WebApplication1.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -160,9 +162,10 @@ namespace WebApplication1.Controllers
         public ActionResult Register()
         {
             ViewBag.UserType = new SelectList(new[] { "Personal", "Professional" });
-            ViewBag.City = new SelectList(new[] { "Rabat", "Tanger" });
+            ViewBag.City = new SelectList(new[] { "Casablanca", "Agadir", "Al Hoceima", "Béni Mellal", "El Jadida", "Errachidia", "Fès", "Kénitra", "Khénifra", "Khouribga", "Larache", "Marrakech", "Meknès", "Nador", "Ouarzazate", "Oujda", "Rabat", "Safi", "Settat", "Salé", "Tanger", "Taza", "Tétouan", "laayoune", "Dakhla" });
             return View();
         }
+
 
         //
         // POST: /Account/Register
@@ -174,8 +177,8 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.UserType = new SelectList(new[] { "Personal", "Professional" });
-                ViewBag.City = new SelectList(new[] { "Rabat", "Tanger" });
-                var user = new ApplicationUser { UserName = model.UserName,FirstName = model.FirstName, LastName = model.LastName, Adress = model.Adress, City = model.city, Email = model.Email, UserType = model.UserType };
+                ViewBag.City = new SelectList(new[] { "Casablanca", "Agadir", "Al Hoceima", "Béni Mellal", "El Jadida", "Errachidia", "Fès", "Kénitra", "Khénifra", "Khouribga", "Larache", "Marrakech", "Meknès", "Nador", "Ouarzazate", "Oujda", "Rabat", "Safi", "Settat", "Salé", "Tanger", "Taza", "Tétouan", "laayoune", "Dakhla" }); 
+                var user = new ApplicationUser { DateCreation = DateTime.Now, UserName = model.UserName,FirstName = model.FirstName, LastName = model.LastName, Adress = model.Adress, City = model.city, Email = model.Email, PhoneNumber = model.PhoneNumber, UserType = model.UserType };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -194,6 +197,73 @@ namespace WebApplication1.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        // GET: Edit Profil
+        public ActionResult EditProfil()
+        {
+            ViewBag.City = new SelectList(new[] { "Casablanca", "Agadir", "Al Hoceima", "Béni Mellal", "El Jadida", "Errachidia", "Fès", "Kénitra", "Khénifra", "Khouribga", "Larache", "Marrakech", "Meknès", "Nador", "Ouarzazate", "Oujda", "Rabat", "Safi", "Settat", "Salé", "Tanger", "Taza", "Tétouan", "laayoune", "Dakhla" }); 
+            var userId = User.Identity.GetUserId();
+            var user = db.Users.Where(a => a.Id == userId).SingleOrDefault();
+            EditProfileViewModel profile = new EditProfileViewModel();
+            profile.PhoneNumber = user.PhoneNumber;
+            profile.FirstName = user.FirstName;
+            profile.LastName = user.LastName;
+            profile.city = user.City;
+            profile.Adress = user.Adress;
+            profile.Email = user.Email;
+            ViewBag.UserType = user.UserType;
+            ViewBag.Date = user.DateCreation.ToShortDateString();
+            ViewBag.Full = user.FirstName +" "+ user.LastName;
+            ViewBag.Email = user.Email;
+            return View(profile);
+        }
+
+        // Post: Edit Profil
+        [HttpPost]
+        public ActionResult EditProfil(EditProfileViewModel profil)
+        {
+            ViewBag.City = new SelectList(new[] { "Casablanca", "Agadir", "Al Hoceima", "Béni Mellal", "El Jadida", "Errachidia", "Fès", "Kénitra", "Khénifra", "Khouribga", "Larache", "Marrakech", "Meknès", "Nador", "Ouarzazate", "Oujda", "Rabat", "Safi", "Settat" , "Salé", "Tanger", "Taza", "Tétouan", "laayoune", "Dakhla"});
+            var userId = User.Identity.GetUserId();
+            var OldUser = db.Users.Where(a => a.Id == userId).SingleOrDefault();
+
+
+            if(!ModelState.IsValid || !UserManager.CheckPassword(OldUser, profil.OldPassword))
+            {
+                ViewBag.Message = "Save Error";
+                ViewData["Stat"] = false;
+            }
+            else
+            {
+                var newPassword = UserManager.PasswordHasher.HashPassword(profil.NewPassword);
+                OldUser.FirstName = profil.FirstName;
+                OldUser.LastName = profil.LastName;
+                OldUser.Email = profil.Email;
+                OldUser.Adress = profil.Adress;
+                OldUser.City = profil.city;
+                OldUser.PhoneNumber = profil.PhoneNumber;
+                OldUser.PasswordHash = newPassword;
+
+                db.Entry(OldUser).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+
+                ViewBag.Message = "aved successfully";
+                ViewData["Stat"] = true;
+            }
+            return View(profil);
+        }
+
+        // Delete User
+        public ActionResult DeleteUser()
+        {
+            var UserId = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserId).SingleOrDefault();
+            var user = db.Users.Where(a => a.Id == CurrentUser.Id).First();
+            db.Users.Remove(user);
+            db.SaveChanges();
+            Session.Abandon();
+            return RedirectToAction("index","Home");
         }
 
         //
